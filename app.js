@@ -24,9 +24,9 @@ const displayItems = (items) => {
       const mealItemDiv = document.createElement("div");
       const mealInfo = `
     <img onclick="mealDetails('${item.strMeal}')" src="${item.strMealThumb}">
-    <h3 onclick="mealDetails('${item.strMeal}')">${item.strMeal}</h3>
+    <h4 onclick="mealDetails('${item.strMeal}')">${item.strMeal}</h4>
     `;
-      const mealStyle = `border: 1px solid lightgray;
+      const mealStyle = `border: 1px solid goldenrod;
     width:260px;
     border-radius: 3px;
     padding: 5px;`;
@@ -50,6 +50,8 @@ const mealDetails = (name) => {
 
 const showDetails = (clickedItem) => {
   const mealDiv = document.getElementById("meal-details");
+  document.getElementById("meal-details").innerHTML = "";
+  const mealInnerDiv = document.createElement("div");
   const ingredient = [];
   for (let i = 1; i <= 20; i++) {
     if (clickedItem[`strIngredient${i}`]) {
@@ -60,13 +62,25 @@ const showDetails = (clickedItem) => {
       );
     }
   }
-  mealDiv.innerHTML = `
+  mealInnerDiv.innerHTML = `
   <img src="${clickedItem.strMealThumb}">
   <h3>Name: ${clickedItem.strMeal}</h3>
-  <h5 style="margin-left: -60px">Ingredients:</h5>
+  <h5>Ingredients:</h5>
   <ul>
     ${ingredient.join("")}
   </ul>
+  <button class="btn btn-danger" id="close" style="margin-left: 290px; margin-bottom:20px;" >Close</button>
   
   `;
+  const mealInnerDivStyle = `text-align:justify;
+  border: 1px solid goldenrod;
+    width:380px;
+    border-radius: 3px;
+    padding: 5px;
+  `;
+  mealInnerDiv.style = mealInnerDivStyle;
+  mealDiv.appendChild(mealInnerDiv);
+  document.getElementById("close").addEventListener("click", function () {
+    document.getElementById("meal-details").innerHTML = "";
+  });
 };

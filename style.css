@@ -26,7 +26,7 @@
 .meals-item{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 20px 10px;
 }
 
 .meals-item img{
@@ -42,7 +42,9 @@
     list-style: none;
 }
 #meal-details{
-    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width:27%;
 }
 
 
