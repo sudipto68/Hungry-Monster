@@ -1,0 +1,57 @@
+.nav-link{
+    color:black !important;
+}
+.nav-item{
+    margin-right: 30px;
+}
+.navbar-nav {
+    margin-left: auto !important;
+}
+#search{
+    padding: 9px;
+    width: 300px;
+    background-color: #F8F7F5;
+    border-style: none;
+}
+.search-row{
+    text-align: center;
+}
+.search-btn{
+    padding: 8px!important;
+    margin-left: -4px !important;
+    margin-top: -4px !important;
+    border-bottom-left-radius: 0% !important;
+    border-top-left-radius: 0% !important;
+}
+.meals-item{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.meals-item img{
+    height: 250px;
+    width:250px
+}
+#meal-details img{
+     height: 220px;
+     width:370px;
+     border-radius: 5px;
+}
+#meal-details ul li{
+    list-style: none;
+}
+#meal-details{
+    text-align: center;
+}
+
+
+
+@media(max-width:389px){
+    .search-btn {
+        padding: 6px !important;
+        margin-right: 230px !important;
+        margin-top: 15px !important;
+        border-radius: 3px !important;
+    }
+}
