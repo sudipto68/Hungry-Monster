@@ -2,8 +2,9 @@
 const searchItem = () => {
   const itemName = document.getElementById("search").value;
   document.getElementById("search").value = "";
+  document.getElementById("error-message").innerText = "";
   if (itemName == "") {
-    alert("Please, write any item name to search!");
+    showErrorMessage("Plese Write Something to Search!");
   } else {
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + itemName)
       .then((res) => res.json())
@@ -26,16 +27,16 @@ const displayItems = (items) => {
     <img onclick="mealDetails('${item.strMeal}')" src="${item.strMealThumb}">
     <h4 onclick="mealDetails('${item.strMeal}')">${item.strMeal}</h4>
     `;
-      const mealStyle = `border: 1px solid goldenrod;
+      const mealStyle = `box-shadow: 2px 2px 10px grey;
     width:260px;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px;`;
       mealItemDiv.style = mealStyle;
       mealItemDiv.innerHTML = mealInfo;
       mealDiv.appendChild(mealItemDiv);
     });
   } else {
-    alert("Sorry! We couldn't find such item. Try again!"); //jodi amon kono input ashe jeta search a nei ba null
+    showErrorMessage("Sorry! We couldn't find such item. Try again!"); //jodi amon kono input ashe jeta search a nei ba null
   }
 };
 
@@ -64,17 +65,20 @@ const showDetails = (clickedItem) => {
   }
   mealInnerDiv.innerHTML = `
   <img src="${clickedItem.strMealThumb}">
-  <h3>Name: ${clickedItem.strMeal}</h3>
+  <h4>Name: ${clickedItem.strMeal}</h4>
+  <h5>Food Area: ${clickedItem.strArea}</h5>
   <h5>Ingredients:</h5>
   <ul>
     ${ingredient.join("")}
   </ul>
-  <button class="btn btn-danger" id="close" style="margin-left: 290px; margin-bottom:20px;" >Close</button>
+  <h5>Instructions: </h5><span syle:"text-align:justify">${
+    clickedItem.strInstructions
+  }</span><br>
+  <button class="btn btn-danger" id="close" style="margin-top:20px;" >Close Recipe</button>
   
   `;
   const mealInnerDivStyle = `text-align:justify;
-  border: 1px solid goldenrod;
-    width:380px;
+    width:480px;
     border-radius: 3px;
     padding: 5px;
   `;
@@ -83,4 +87,9 @@ const showDetails = (clickedItem) => {
   document.getElementById("close").addEventListener("click", function () {
     document.getElementById("meal-details").innerHTML = "";
   });
+};
+
+const showErrorMessage = (msg) => {
+  const errorMessageHeader = document.getElementById("error-message");
+  errorMessageHeader.innerText = msg;
 };

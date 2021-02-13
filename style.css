@@ -31,7 +31,8 @@
 
 .meals-item img{
     height: 250px;
-    width:250px
+    width:250px;
+    border-radius: 4px;
 }
 #meal-details img{
      height: 220px;
