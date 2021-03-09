@@ -16,6 +16,14 @@ const searchItem = () => {
   }
 };
 
+//enter button press searching functionality
+document
+  .getElementById("search")
+  .addEventListener("keypress", function (event) {
+    if (event.key == "Enter") {
+      searchItem();    }
+  });
+
 // showing search based items result
 const displayItems = (items) => {
   let mealItems = items.meals;
