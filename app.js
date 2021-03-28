@@ -86,7 +86,7 @@ const showDetails = (clickedItem) => {
   
   `;
   const mealInnerDivStyle = `text-align:justify;
-    width:480px;
+    width:340px;
     border-radius: 3px;
     padding: 5px;
   `;

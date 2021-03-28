@@ -62,3 +62,42 @@ cursor: pointer;
         border-radius: 3px !important;
     }
 }
+
+@media only screen and (max-width: 576px){
+
+.meals-item{
+    display: grid;
+    margin-left: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px 10px;
+}
+
+#meal-details{
+    margin-left: 30px;
+    width: 280px;
+}
+#meal-details img{
+     height: 220px;
+     width:280px;
+     border-radius: 5px;
+}
+
+#search{
+    padding: 9px;
+    width: 250px;
+    margin-right: 40px !important;
+    background-color: #F8F7F5;
+    border-style: none;
+}
+}
+@media only screen and (min-width: 576px) and (max-width:1024px){
+
+
+.meals-item{
+    display: grid;
+    margin-left: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 10px;
+}
+
+}
